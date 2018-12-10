@@ -1,7 +1,7 @@
 FROM alpine:3.8
 
 ENTRYPOINT ["/entrypoint.sh"]
-EXPOSE 22
+EXPOSE 2222
 COPY entrypoint /
 
 RUN apk add --no-cache openssh \
