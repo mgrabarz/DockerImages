@@ -1,0 +1,10 @@
+FROM alpine:3.8
+
+ARG SRC_URL=http://localhost
+ARG DEST_URL
+ARG BASE64_ACCOUNT_PEM
+ENTRYPOINT ["/entrypoint.sh"]
+COPY entrypoint /
+
+RUN wget -O- https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-linux-amd64.tgz | tar xz 
+RUN mkdir -p /etc/cloudflared/ 
