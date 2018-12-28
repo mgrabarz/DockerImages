@@ -1,10 +1,13 @@
-FROM alpine:3.8
+FROM debian 
 
-ARG SRC_URL=http://localhost
-ARG DEST_URL
-ARG BASE64_ACCOUNT_PEM
+RUN mkdir -p /usr/sbin/cloudflared/; \
+    mkdir -p /etc/cloudflared/; \
+    apt-get -yqq update ; \
+    apt-get install -y wget; \
+    wget -O /usr/sbin/cloudflared/cloudflared.tgz https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-linux-amd64.tgz; \
+    tar -zxvf /usr/sbin/cloudflared/cloudflared.tgz -C /usr/sbin/cloudflared/; \
+    chmod +x /usr/sbin/cloudflared/cloudflared; \
+    rm /usr/sbin/cloudflared/cloudflared.tgz;
+
 ENTRYPOINT ["/entrypoint.sh"]
 COPY entrypoint /
-
-RUN wget -O- https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-linux-amd64.tgz | tar xz 
-RUN mkdir -p /etc/cloudflared/ 
