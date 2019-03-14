@@ -1,0 +1,3 @@
+FROM sonarqube:7.6-community
+
+COPY ./sonar-auth-aad-plugin-1.1-RC2.jar $SONARQUBE_HOME/extensions/plugins
