@@ -1,0 +1,3 @@
+FROM aquasec/kube-bench:latest
+
+COPY  /cfg /cfg
