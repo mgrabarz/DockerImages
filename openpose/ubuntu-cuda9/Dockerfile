@@ -5,7 +5,14 @@ FROM nvidia/cuda:9.0-devel-ubuntu16.04
 RUN apt-get update && \
 DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
 python3-dev python3-pip git g++ wget make libprotobuf-dev protobuf-compiler libopencv-dev \
-libgoogle-glog-dev libboost-all-dev libcaffe-cuda-dev libhdf5-dev libatlas-base-dev
+libgoogle-glog-dev libboost-all-dev libhdf5-dev libatlas-base-dev
+
+#miniconda for libcaffe-cuda
+wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh
+bash ~/miniconda.sh -b -p ~/miniconda 
+export PATH=~/miniconda/bin:$PATH
+conda create -n caffe
+conda install caffe
 
 #for python api
 RUN pip3 install numpy opencv-python 
