@@ -8,7 +8,7 @@ python3-dev python3-pip git g++ wget make libprotobuf-dev protobuf-compiler libo
 libgoogle-glog-dev libboost-all-dev libhdf5-dev libatlas-base-dev
 
 #miniconda for libcaffe-cuda
-wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh
+curl -O https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh
 bash ~/miniconda.sh -b -p ~/miniconda 
 export PATH=~/miniconda/bin:$PATH
 conda create -n caffe
