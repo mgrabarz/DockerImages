@@ -11,8 +11,8 @@ libgoogle-glog-dev libboost-all-dev libhdf5-dev libatlas-base-dev
 RUN wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh
 RUN bash ~/miniconda.sh -b -p ~/miniconda 
 ENV PATH="~/miniconda/bin:${PATH}"
-RUN conda create -n caffe
-RUN conda install caffe
+RUN ~/miniconda/bin/conda create -n caffe
+RUN ~/miniconda/bin/conda install caffe
 
 #for python api
 RUN pip3 install numpy opencv-python 
