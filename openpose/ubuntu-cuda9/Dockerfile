@@ -29,7 +29,7 @@ RUN git clone https://github.com/CMU-Perceptual-Computing-Lab/openpose.git .
 
 #install cuDNN 5.1
 RUN wget -c http://developer.download.nvidia.com/compute/redist/cudnn/v5.1/cudnn-8.0-linux-x64-v5.1.tgz
-RUN sudo tar -xzf cudnn-8.0-linux-x64-v5.1.tgz -C /usr/local
+RUN tar -xzf cudnn-8.0-linux-x64-v5.1.tgz -C /usr/local
 
 #build it
 WORKDIR /openpose/build
